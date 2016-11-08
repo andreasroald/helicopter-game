@@ -1,10 +1,11 @@
+# Cavecopter by Coregame
+# https://github.com/coregameHD/Cavecopter
+# Forked from andreasroald/helicopter-game
 import sprites
 import random
 import pygame
 
-
 class EnemyHeli(object):
-
     shoot = False
     shoot_counter = 0
     bullets = []
@@ -41,25 +42,11 @@ class EnemyHeli(object):
     def movement(self):
         if self.x > 600:
             self.x -= 10
-        else:
-            if self.y > 100 and self.moving_up:
-                self.y -= 2
-            else:
-                self.moving_up = False
-                self.moving_down = True
-
-            if self.y < 400 and self.moving_down:
-                self.y += 2
-            else:
-                self.moving_down = False
-                self.moving_up = True
 
     def animation(self):
-
         self.counter += 1
 
         if self.counter == 2:
-
             if self.next_0:
                 self.current = sprites.enemy_helicopter_list[0]
                 self.next_0 = False
@@ -68,13 +55,10 @@ class EnemyHeli(object):
                 self.current = sprites.enemy_helicopter_list[1]
                 self.next_1 = False
                 self.next_0 = True
-
             self.counter = 0
 
     def shoot(self):
-
             self.shoot_counter += 1
-
             if self.shoot_counter >= 30:
                 if not self.x > 600 and not self.x < 400:
                     self.bullets.append([self.x, self.y])

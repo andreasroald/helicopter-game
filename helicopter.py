@@ -1,8 +1,9 @@
+# Cavecopter by Coregame
+# https://github.com/coregameHD/Cavecopter
+# Forked from andreasroald/helicopter-game
 import sprites
 
-
 class Helicopter(object):
-
     health = 3
 
     animation_number = 0
@@ -57,11 +58,8 @@ class Helicopter(object):
             self.damaged_counter = 0
 
     def movement(self):
-
         speed = 10
-
         if not self.wreck_start:
-
             if (self.moving_up and self.moving_left) or (self.moving_down and self.moving_left):
                 speed *= 0.707
             if (self.moving_up and self.moving_right) or (self.moving_down and self.moving_right):
@@ -93,11 +91,9 @@ class Helicopter(object):
             self.health = 0
 
     def animation(self):
-
         self.counter += 1
-
+        
         if self.counter == 2:
-
             if self.next_0:
                 self.current = self.animation_list[0]
                 self.next_0 = False
@@ -106,7 +102,6 @@ class Helicopter(object):
                 self.current = self.animation_list[1]
                 self.next_1 = False
                 self.next_0 = True
-
             self.counter = 0
 
     def player_init(self):
